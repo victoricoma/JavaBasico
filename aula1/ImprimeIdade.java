@@ -26,7 +26,22 @@ public class ImprimeIdade {
             }
 
         } else {
-            System.out.println("Novo demais para medicao.");
+            if (imc <= 18) {
+                System.out.println("IMC: " + imc + " sua idade e " +
+                        idade + " Procure um médico para avaliação de subnutrição.");
+            } else if (imc <= 26) {
+                System.out.println("IMC: " + imc + " sua idade e " +
+                        idade + "Seu indice está controlado e saudável procure um nutricionista.");
+            } else if (imc <= 32) {
+                System.out.println("IMC: " + imc + " sua idade e " +
+                        idade + " Parabéns consulte um médico para medição muscular e acompanhamento.");
+            } else if (imc <= 40) {
+                System.out.println("IMC: " + imc + " sua idade e " +
+                        idade + "Pré obesidade precisará de acompanhamento médico e nutricional.");
+            } else {
+                System.out.println("IMC: " + imc + " sua idade e " +
+                        idade + "Procure um médico endocrinologista com urgência.");
+            }
         }
     }
 }
