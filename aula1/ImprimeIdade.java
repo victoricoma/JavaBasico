@@ -24,7 +24,6 @@ public class ImprimeIdade {
                 System.out.println("IMC: " + imc + " sua idade e " +
                         idade + " procure um médico e um nutricionista.");
             }
-
         } else {
             if (imc <= 18) {
                 System.out.println("IMC: " + imc + " sua idade e " +
