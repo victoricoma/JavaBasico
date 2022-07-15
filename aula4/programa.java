@@ -9,6 +9,7 @@ public class programa {
         van.capCombustivel = 76;
         van.numPassageiro = 10;
         van.consCombustivel = 20.2;
+        van.tipoCombustivel = "diesel";
 
         Carro fusca = new Carro();
         fusca.marca = "Volkswagen";
@@ -16,6 +17,7 @@ public class programa {
         fusca.capCombustivel = 42;
         fusca.numPassageiro = 4;
         fusca.consCombustivel = 8.6;
+        fusca.tipoCombustivel = "etanol";
 
         System.out.println("--- Impressao do Objeto [Fisico] ---");
         System.out.println(van);
@@ -26,5 +28,15 @@ public class programa {
         }else{
             System.out.println("Nao e Eco Eficiente.");
         }
+
+        System.out.println(fusca);
+        System.out.println("Modelo: "+fusca.modelo+" | Autonomia: "+fusca.calculaAutonomia());
+        System.out.println("Eco taxa: " + fusca.verificarEcoDesempenho());
+        if(fusca.validaEcoDesempenho(106) == true){
+            System.out.println("Eco eficiente.");
+        }else{
+            System.out.println("Nao e Eco Eficiente.");
+        }
+
     }
 }
