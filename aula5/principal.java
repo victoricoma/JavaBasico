@@ -3,6 +3,7 @@ package aula5;
 public class principal {
     public static void main(String[] args) {
         Aluno a1 = new Aluno();
+        Aluno a2 = new Aluno();
         Professor p1 = new Professor();
 
         p1.setNome("Reginaldo Pereira");
@@ -20,7 +21,17 @@ public class principal {
         double[] notas = {9.5, 6.5, 8.5, 6.3, 9.7, 8.6, 6.2, 7.5, 4.9};
         a1.setNotas(notas);
 
+        a2.setNome("Helena Carlos");
+        a2.setEndereco("Rua das Pinheiras, 4");
+        a2.setTelefone("(16)99823.5623");
+        a2.setCpf("302.552.456-56");
+        a2.setCurso("Ciencia de Dados");
+        double[] notas2 = {7.5, 6.5, 2.5, 6.3, 8.7, 6.6};
+        a2.setNotas(notas2);
+        a2.setEstagio(true);
+
         System.out.println(p1.montaHolerite());
         System.out.println(a1.montaBoletim());
+        System.out.println(a2.montaBoletim(a2.getEstagio()));
     }
 }
