@@ -4,6 +4,7 @@ public class Aluno extends Pessoa {
     private String curso;
     private double[] notas;
 
+    
     // #region Encapsulamento [Getters e Setters]
     public String getCurso() {
         return curso;
@@ -25,35 +26,43 @@ public class Aluno extends Pessoa {
     // #region Regras de Negócios
     private double calculaMedia() {
         double media = 0;
+        if(notas.length > 3 && notas.length < 10){
         for (int i = 0; i < this.notas.length; i++) {
             media += notas[i];
-        }
-        return (media / notas.length);
+        } return (media / notas.length);
+    } else {
+        return -1 ;
+    }
+        
     }
 
-    private boolean verificaAprovacao(double media) {
+    private String verificaAprovacao(double media) {
         if (media >= 7) {
-            return true;
-        } else {
-            return false;
+            return "aprovado";
+        } else if(media < 7 && media > 0 ) {
+            return "reprovado";
+        } else{
+            return "Errado";
         }
     }
 
     public String montaBoletim() {
-        String boletim = ("Nome do Aluno: " + super.getNome() + System.lineSeparator());
-        if (this.verificaAprovacao(this.calculaMedia()) == false) {
-            boletim += (System.lineSeparator()
-                    + "Devido a política da academia, o resultado está disponivel on-line");
-        } else {
-            boletim += ("CPF: " + super.getCpf()
-                    + System.lineSeparator()
-                    + System.lineSeparator());
+        String boletim = "Nome do Aluno: " + super.getNome() + System.lineSeparator();
+        boletim += ("O Aluno está matriculado em: " + getCurso()+ System.lineSeparator());
+        if (this.verificaAprovacao(this.calculaMedia()) == "reprovado") {
+            boletim += (System.lineSeparator() +
+                    "Devido a política da academia, o resultado está disponivel online");
+        } else if(this.verificaAprovacao(this.calculaMedia()) == "aprovado"){
+            boletim += ("CPF" + super.getCpf() + System.lineSeparator() + System.lineSeparator());
             for (int i = 0; i < this.notas.length; i++) {
-                boletim += (" avaliacao: " + this.notas[i] + " | " + System.lineSeparator());
+                boletim += " avaliacao: " + this.notas[i] + " | " + System.lineSeparator();
             }
             boletim += ("Resultado: Aprovado." + System.lineSeparator());
-            boletim += ("Media final: " + this.calculaMedia() + System.lineSeparator());
-        }
+            boletim += ("Media final: " + this.calculaMedia());
+            }else{
+                boletim = "Digite uma quantidade valida de notas";
+            }
+        
         return boletim;
     }
     // #endregion
