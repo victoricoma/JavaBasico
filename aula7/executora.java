@@ -16,8 +16,8 @@ delta.setDelta(entrada.nextDouble());
 System.out.println("Qual o valor de C?");
 delta.setC(entrada.nextDouble());
 delta.calculaDelta();
-System.out.println(x:" --- Resultado --- ");
-System.out.println("Delta: "+delta.getDelta()"");
+System.out.println(" --- Resultado --- ");
+System.out.println("Delta: "+delta.getDelta());
 System.out.println("X| : "+x.calculaXn(delta));
 System.out.println("X|| :"+x.calculaXp(delta));
 
